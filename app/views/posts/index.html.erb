@@ -1,9 +1,12 @@
 <h1>AjaxApp</h1>
 <%= form_with url: "/posts", method: :post,id: "form" do |from| %>
-  <%= from.text_field :content %>
+  <%= from.text_field :content, id: "content" %>
   <%= from.submit '投稿する' , id: "submit" %>
 <% end %>
-<%= link_to '新規投稿', '/posts/new'%>
+
+<div id="list">
+</div>
+
 <% @posts.each do |post| %>
  <div class="post" data-id=<%= post.id %> data-check=<%= post.checked %>>
     <div class="post-date">
